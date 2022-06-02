@@ -1,0 +1,3 @@
+<?php // test.encrypt.public on Wed, 01 Jun 2022 16:19:24 +0300
+
+return "xEPEn\x9E\xE3\x0AkP\xB3\xB7\xDE\x1AT\x12C\xD5\xB8\x0C\xD9\xD1fp\x02\x1EN\x19\x89Y\x972";

@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Review{% endblock %}
+
+{% block body %}
+    {% include '/main/header.html.twig' %}
+
+    <section>
+        <div class="container-xxl">
+            <div class="card" style="max-height: inherit; padding-bottom: 15px;">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="d-flex justify-content-center card-title" style="margin-left: 0;">{{review.productID.titleProduct}}</h2>
+                    </div>
+                    <div class="col-4">
+                        <img src="{{ review.productID.productPhoto }}" class="card-img-top">
+                    </div>
+                    <div class="col-8" style="margin-top: 10px;">
+                        <h4 style="font-weight: 400; font-size: 20px">{{ review.productID.description }}</h4>
+                    </div>
+                    <div class="d-flex justify-content-center col-4">
+                        <a href="/review/new" type="button" class="btn btn-primary">Написать отзыв</a>
+                    </div>
+                    <div class="col-5">
+
+                    </div>
+                    <div class="col-3" style="margin-top: 10px;">
+                        <div class="d-flex justify-content-end rating-result">
+                            <span class="active"></span>
+                            <span class="active"></span>
+                            <span class="active"></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container-xxl">
+            <div class="card" style="max-height: inherit; padding-bottom: 15px;">
+                <div class="row">
+                    <div class="col-9" style="padding-top: 20px; padding-left: 30px">
+                        <img src="{{ review.userID.photoUser }}" class="rounded-circle" height="45" width="45" alt="Avatar" loading="lazy" />
+                        <a href="#" class="card-link align-self-center" style="padding-left: 5px; font-size: 20px">{{review.userID.name}}</a>
+                        <p style="padding-top: 10px;">Опубликовано {{ review.dateReview|date('Y-m-d') }}</p>
+                    </div>
+                    <div class="col-3" style="padding-top: 20px; padding-left: 20px">
+                        <div class="d-flex justify-content-end rating-result">
+                            <span class="active"></span>
+                            <span class="active"></span>
+                            <span class="active"></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <p class="card-text" style="padding-top: 20px; padding-left: 20px">{{ review.textReview }}</p>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

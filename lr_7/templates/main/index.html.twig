@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Comment.ru{% endblock %}
+
+{% block body %}
+
+{% include '/main/header.html.twig' %}
+
+
+	<section>
+		<div class="container-xxl">
+			<div class="row align-items-center">
+			<div class="col-7">
+				<h1>Добро пожаловать на Comment.ru</h1>
+				<h2>Оставляйте отзывы. Делитесь впечатлениями. Выбирайте с умом.</h2>
+			</div>
+			<div class="col-5">
+				<img class="w-100" src="img/Comment.png" alt="otziv">
+			</div>
+		  </div>
+		</div>
+		
+	</section>
+
+	<section>
+		<div class="container-xxl">
+			<h3>Последние отзывы</h3>
+			{% for p in review %}
+			 {% if p.status == true %}
+				<div class="card">
+					<div class="row">
+						<div class="col-9">
+							<a href="{{ path('app_review_show', {'id': p.id}) }}" class="card-title">{{p.productID.titleProduct}}</a>
+							
+						</div>
+						<div class="col-3">
+							<div class="rating-result">
+								<span class="active"></span>
+								<span class="active"></span>
+								<span class="active"></span>
+								<span></span>
+								<span></span>
+							</div>
+						</div>
+						<div class="col-3">
+							<img src="{{ p.productID.productPhoto }}" class="card-img-top">
+						</div>
+						<div class="col-9">
+							<div class="card-body"> 
+							<p class="card-text">{{ p.textReview }}</p>
+							</div>
+						<div class="col">
+							<img src="{{ p.userID.photoUser }}" class="rounded-circle" height="40" width="40" alt="Avatar" loading="lazy" />
+							<a href="#" class="card-link align-self-center" style="padding-left: 5px;">{{p.userID.name}}</a>
+						</div>
+						</div>
+					  </div>
+				  </div>
+				  {% endif %}
+			{% endfor %}
+		</div>
+	</section>
+
+
+
+
+{% endblock %}
